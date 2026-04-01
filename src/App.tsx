@@ -45,34 +45,41 @@ function App() {
   ];
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-5">
-          <div className="card shadow-lg">
-            <div className="card-body p-4">
-              <h3 className="text-center mb-4">Calculator</h3>
-              
-              <div className="bg-dark text-white text-end p-4 fs-1 rounded mb-4" 
-                   style={{ minHeight: '90px', fontFamily: 'monospace' }}>
-                {display}
-              </div>
+    <div className="min-vh-100" style={{ 
+      background: 'linear-gradient(to bottom, #0a0a2a, #000428)' 
+    }}>
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-5">
+            <div className="card shadow-lg" style={{
+              background: 'rgba(15, 23, 42, 0.95)',
+              border: '1px solid rgba(0, 245, 255, 0.4)'
+            }}>
+              <div className="card-body p-4">
+                <h3 className="text-center mb-4" style={{ color: '#00f5ff' }}>Calculator</h3>
+                
+                <div className="bg-dark text-white text-end p-4 fs-1 rounded mb-4" 
+                     style={{ minHeight: '90px', fontFamily: 'monospace' }}>
+                  {display}
+                </div>
 
-              <div className="row g-2">
-                {buttons.map((btn, index) => (
-                  <div key={index} className="col-3">
-                    <button 
-                      className={`btn w-100 py-3 ${
-                        btn.type === 'clear' ? 'btn-danger' :
-                        btn.type === 'operator' ? 'btn-info' :
-                        btn.type === 'equals' ? 'btn-primary' :
-                        'btn-secondary'   // ← Light gray numbers
-                      }`}
-                      onClick={() => handleClick(btn.label)}
-                    >
-                      {btn.label}
-                    </button>
-                  </div>
-                ))}
+                <div className="row g-2">
+                  {buttons.map((btn, index) => (
+                    <div key={index} className="col-3">
+                      <button 
+                        className={`btn w-100 py-3 ${
+                          btn.type === 'clear' ? 'btn-danger' :
+                          btn.type === 'operator' ? 'btn-info' :
+                          btn.type === 'equals' ? 'btn-primary' :
+                          'btn-secondary'
+                        }`}
+                        onClick={() => handleClick(btn.label)}
+                      >
+                        {btn.label}
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
